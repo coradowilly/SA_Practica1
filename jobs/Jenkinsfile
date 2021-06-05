@@ -9,12 +9,14 @@ pipeline {
         stage('Build') { 
             steps {
                 // Create Docker container 
+                sh 'cd client'
                 sh 'ng build --prod --aot --sm --progress=false'
             }
         }
         stage('Test') { 
             steps {
                 // Run Unit testing
+                sh 'cd client'
                 sh 'ng test --progress=false --watch false'
             }
         }
