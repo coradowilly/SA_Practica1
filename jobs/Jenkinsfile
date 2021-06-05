@@ -1,63 +1,31 @@
 pipeline {
     agent any 
     stages {
-        // stage('Install') {
-        //     steps {
-        //         sh 'npm i'
-        //     }
-        // }
-        // stage('Build') { 
-        //     steps {
-        //         // Create Docker container 
-        //         sh 'cd client'
-        //         sh 'ng build --prod --aot --sm --progress=false'
-        //     }
-        // }
-        // stage('Test') { 
-        //     steps {
-        //         // Run Unit testing
-        //         sh 'cd client'
-        //         sh 'ng test --progress=false --watch false'
-        //     }
-        // }
-        // stage('Deploy') { 
-        //     steps {
-        //         // Deploy Docker container
-        //         echo 'Deploying'
-        //     }
-        // }
-
-
-        stage('NPM Install') {
-            withEnv(["NPM_CONFIG_LOGLEVEL=warn"]) {
-                sh 'npm install'
+        stage('Install') {
+            steps {
+                sh 'cd client'
+                sh 'npm i'
             }
         }
-
-        stage('Test') {
-            withEnv(["CHROME_BIN=/usr/bin/chromium-browser"]) {
-            sh 'ng test --progress=false --watch false'
+        stage('Build') { 
+            steps {
+                // Create Docker container 
+                sh 'cd client'
+                sh 'ng build --prod --aot --sm --progress=false'
             }
-            junit '**/test-results.xml'
         }
-
-        stage('Lint') {
-            sh 'ng lint'
+        stage('Test') { 
+            steps {
+                // Run Unit testing
+                sh 'cd client'
+                sh 'ng test --progress=false --watch false'
+            }
         }
-
-        stage('Build') {
-            milestone()
-            sh 'ng build --prod --aot --sm --progress=false'
-        }
-
-        stage('Archive') {
-            sh 'tar -cvzf dist.tar.gz --strip-components=1 dist'
-            archive 'dist.tar.gz'
-        }
-
-        stage('Deploy') {
-            milestone()
-            echo "Deploying..."
+        stage('Deploy') { 
+            steps {
+                // Deploy Docker container
+                echo 'Deploying'
+            }
         }
     }
 }
