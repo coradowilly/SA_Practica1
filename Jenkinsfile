@@ -22,8 +22,7 @@ pipeline {
 
         stage ('deploy') {
             steps {
-                // sh 'live-server dist/client'
-                sh 'npm run deploy'
+                sh 'python -m SimpleHTTPServer 8000 &> /dev/null &'
             }
         }
     }
@@ -33,7 +32,6 @@ pipeline {
             echo 'Install, Test, Build and Deploy'
         }
         failure {
-            which 'npm'
             echo 'Algo fallo'
         }
     }
