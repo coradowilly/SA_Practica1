@@ -1,30 +1,20 @@
 node {
-    stages {
-        stage('Install') {
-            steps {
-                sh 'cd client'
-                sh 'npm i'
-            }
-        }
-        stage('Build') { 
-            steps {
-                // Create Docker container 
-                sh 'cd client'
-                sh 'ng build --prod --aot --sm --progress=false'
-            }
-        }
-        stage('Test') { 
-            steps {
-                // Run Unit testing
-                sh 'cd client'
-                sh 'ng test --progress=false --watch false'
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                // Deploy Docker container
-                echo 'Deploying...'
-            }
-        }
+    stage {
+        git branch: 'master', url: 'https://github.com/coradowilly/SA_Practica1.git'
+    }
+    stage('Install') {
+        sh 'npm i'
+    }
+    stage('Build') { 
+        // Create Docker container 
+        sh 'ng build --prod --aot --sm --progress=false'
+    }
+    stage('Test') { 
+        // Run Unit testing
+        sh 'ng test --progress=false --watch false'
+    }
+    stage('Deploy') { 
+        // Deploy Docker container
+        echo 'Deploying...'
     }
 }
