@@ -22,8 +22,8 @@ pipeline {
 
         stage ('deploy') {
             steps {
-                sh 'cd dist/client'
-                sh 'live-server'
+                // sh 'live-server dist/client'
+                sh 'npm run build-prod'
             }
         }
     }
