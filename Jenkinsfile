@@ -4,19 +4,19 @@ pipeline {
     stages {
         stage ('install') {
             steps {
-                sh 'npm install'
+                sh '/usr/bin/npm install'
             }
         }
 
         stage ('test') {
             steps {
-                sh 'npm run test'
+                sh '/usr/bin/npm run test'
             }
         }
 
         stage ('build') {
             steps {
-                sh 'npm run build'
+                sh '/usr/bin/npm run build'
             }
         }
 
