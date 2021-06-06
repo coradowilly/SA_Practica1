@@ -22,8 +22,7 @@ pipeline {
 
         stage ('deploy') {
             steps {
-                sh 'cd docs/'
-                sh 'live-server docs/ --port=5000 &&> /dev/null &&'
+                sh 'live-server docs/ --port=5000 &> /dev/null &'
             }
         }
     }
