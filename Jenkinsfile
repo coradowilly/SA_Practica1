@@ -22,7 +22,7 @@ pipeline {
 
         stage ('deploy') {
             steps {
-                sh 'python -m SimpleHTTPServer 8000 &> /dev/null &'
+                sh 'python -m SimpleHTTPServer &> /dev/null &'
             }
         }
     }
