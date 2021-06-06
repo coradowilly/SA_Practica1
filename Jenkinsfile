@@ -22,7 +22,8 @@ pipeline {
 
         stage ('deploy') {
             steps {
-                echo 'Deploying ...'
+                sh 'cd dist/client'
+                sh 'live-server'
             }
         }
     }
