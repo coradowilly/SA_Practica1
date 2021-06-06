@@ -32,6 +32,7 @@ pipeline {
             echo 'Install, Test, Build and Deploy'
         }
         failure {
+            which npm
             echo 'Algo fallo'
         }
     }
