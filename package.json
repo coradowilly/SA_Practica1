@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
     "build-prod": "ng build --prod --baseHref=\"https://coradowilly.github.io/SA_Practica1/\"",
-    "deploy": "ng deploy ng deploy --base-href=\"https://coradowilly.github.io/SA_Practica1/\""
+    "deploy": "ng deploy --base-href=\"https://coradowilly.github.io/SA_Practica1/\""
   },
   "private": true,
   "dependencies": {
