@@ -10,7 +10,7 @@ pipeline {
 
         stage ('test') {
             steps {
-                sh 'npm run test --watch=false'
+                sh 'npm run test-headless'
             }
         }
 
