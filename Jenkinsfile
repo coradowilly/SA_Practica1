@@ -23,7 +23,7 @@ pipeline {
         stage ('deploy') {
             steps {
                 sh 'cd docs/'
-                sh 'python -m SimpleHTTPServer &> /dev/null &'
+                sh 'live-server docs/ --port=5000 &> /dev/null &'
             }
         }
     }
