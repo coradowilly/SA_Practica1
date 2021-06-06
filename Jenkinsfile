@@ -1,25 +1,38 @@
 pipeline {
-    agent any
-  
-    tools {nodejs "nodejs"}
+    agent {label 'master'}
 
-    stage('Checkout SCM') {
-        git branch: 'master', url: 'https://github.com/coradowilly/SA_Practica1.git'
+    stages {
+        stage ('install') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage ('test') {
+            steps {
+                sh 'npm run test'
+            }
+        }
+
+        stage ('build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
+        stage ('deploy') {
+            steps {
+                echo 'Deploying ...'
+            }
+        }
     }
-    stage('Install') {
-        sh 'npm i'
+
+    post {
+        succes {
+            echo 'Install, Test, Build and Deploy'
+        }
+        failure {
+            echo 'Algo fallo'
+        }
     }
-    stage('Build') {
-        // Create Docker container 
-        sh 'ng build --prod --aot --sm --progress=false'
-    }
-    stage('Test') { 
-        // Run Unit testing
-        sh 'ng test --progress=false --watch false'
-    }
-    stage('Deploy') { 
-        // Deploy Docker container
-        echo 'Deploying...'
-    }
-    
 }
