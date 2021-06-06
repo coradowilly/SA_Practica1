@@ -1,5 +1,9 @@
 pipeline {
-    agent {label 'master'}
+    agent {
+        docker {
+          image 'node'
+        }
+     }
 
     stages {
         stage ('install') {
