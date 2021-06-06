@@ -16,14 +16,14 @@ pipeline {
 
         stage ('build') {
             steps {
-                sh 'npm run build'
+                sh 'npm run build-prod'
             }
         }
 
         stage ('deploy') {
             steps {
                 // sh 'live-server dist/client'
-                sh 'npm run build-prod'
+                sh 'npm run deploy'
             }
         }
     }
