@@ -23,7 +23,7 @@ node {
         stage('Deploy') { 
             steps {
                 // Deploy Docker container
-                echo 'Deploying'
+                echo 'Deploying...'
             }
         }
     }
