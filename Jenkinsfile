@@ -1,5 +1,5 @@
 node {
-    stage {
+    stage('Checkout SCM') {
         git branch: 'master', url: 'https://github.com/coradowilly/SA_Practica1.git'
     }
     stage('Install') {
