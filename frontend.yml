@@ -2,6 +2,7 @@
 
 - hosts: server
   become: true
+  connection: local
   tasks:
   - name: Instalar Nodejs frontend
     apt: name=nodejs state=present
