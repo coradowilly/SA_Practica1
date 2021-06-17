@@ -1,2 +1,2 @@
 [server]
-localhost ansible_user=william
+35.153.19.166 ansible_user=ubuntu

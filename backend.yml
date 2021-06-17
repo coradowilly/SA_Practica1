@@ -1,11 +1,7 @@
 ---
 
-- hosts: server
+- hosts: webserv
   become: true
-  connection: local
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
-  remote_user: root
   tasks:
   - name: Instalar Nodejs backend
     apt: name=nodejs state=present
@@ -15,8 +11,8 @@
       name: "npm@latest"
       global: yes
       state: present
-  - name: Agregar Llave Docker
 
+  - name: Agregar Llave Docker
     apt_key:
       url: https://download.docker.com/linux/ubuntu/gpg
       state: present

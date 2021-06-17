@@ -1,11 +1,7 @@
 ---
 
-- hosts: server
+- hosts: webserv
   become: true
-  connection: local
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
-  remote_user: root
   tasks:
   - name: Instalar Nodejs frontend
     apt: name=nodejs state=present
