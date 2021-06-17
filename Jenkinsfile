@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage ('Approval') {
             steps {
-                ansiblePlaybook credentialsId: 'ssh-ansible', disableHostKeyChecking: true, installation: 'ansible-tool', inventory: 'inv.inv', playbook: 'frontend.yml'
                 ansiblePlaybook credentialsId: 'ssh-ansible', disableHostKeyChecking: true, installation: 'ansible-tool', inventory: 'inv.inv', playbook: 'backend.yml'
+                ansiblePlaybook credentialsId: 'ssh-ansible', disableHostKeyChecking: true, installation: 'ansible-tool', inventory: 'inv.inv', playbook: 'frontend.yml'
             }
         }
 
