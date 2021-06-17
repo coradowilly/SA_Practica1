@@ -1,2 +1,2 @@
 [server]
-localhost ansible_user=root
+localhost ansible_user=william
