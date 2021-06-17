@@ -17,7 +17,7 @@ export class AppComponent {
   
   iniciarSesion():Boolean{ 
     console.log(this.user);
-    if(this.user.email == 'coradowilly@gmail.com' && this.user.password == '123456'){
+    if(this.user.email == 'coradowilly@gmail.com' && this.user.password == '1234'){
       this.showSuccess("Login correcto")
       return true
     } else {

@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+        stage ('Approval') {
+            steps {
+                ansiblePlaybook disableHostKeyChecking: true, installation: 'asnsible-tool', inventory: 'inv.inv', playbook: 'backend.yml'
+                ansiblePlaybook disableHostKeyChecking: true, installation: 'asnsible-tool', inventory: 'inv.inv', playbook: 'frontend.yml'
+            }
+        }
+
         stage ('install') {
             steps {
                 sh 'npm install'

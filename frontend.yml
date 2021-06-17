@@ -1,0 +1,17 @@
+---
+
+- hosts: server
+  become: true
+  tasks:
+  - name: Instalar Nodejs frontend
+    apt: name=nodejs state=present
+  - name: Instalar NPM fronend
+    npm:
+      name: "npm@latest"
+      global: yes
+      state: present
+  - name: Instalar Angular frontend
+    npm:
+      name: "@angular/cli@latest"
+      global: yes
+      state: present
