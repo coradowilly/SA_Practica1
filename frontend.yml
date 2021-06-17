@@ -1,6 +1,6 @@
 ---
 
-- hosts: webserv
+- hosts: server
   become: true
   tasks:
   - name: Instalar Nodejs frontend
